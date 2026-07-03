@@ -1,5 +1,7 @@
 # Snort IDS Network Detection SOC Lab
 
+(See the repo files for more detailed writeups and picture documentation)
+
 ## Overview
 
 This project is a network-based SOC home lab built to practice intrusion detection, alert triage, and incident investigation using **Snort IDS**.
