@@ -1,0 +1,29 @@
+# ============================
+# Snort IDS SOC Home Lab Rules
+# Purpose: Detect recon, brute force, insecure protocols, and DoS-style behavior
+# Network:
+#   Attacker: 10.10.10.10
+#   Target:   10.10.20.20
+# ============================
+
+alert icmp 10.10.10.0/24 any -> 10.10.20.20 any (msg:"LAB ICMP Ping Detected From Attacker Network"; itype:8; classtype:misc-activity; sid:1000001; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 any (msg:"LAB Possible TCP SYN Scan or SYN Flood"; flags:S; detection_filter:track by_src, count 20, seconds 10; classtype:attempted-recon; sid:1000002; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 any (msg:"LAB Possible Nmap NULL Scan"; flags:0; classtype:attempted-recon; sid:1000003; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 any (msg:"LAB Possible Nmap FIN Scan"; flags:F; classtype:attempted-recon; sid:1000004; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 any (msg:"LAB Possible Nmap Xmas Scan"; flags:FPU; classtype:attempted-recon; sid:1000005; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 21 (msg:"LAB FTP Connection Attempt"; flow:to_server; classtype:attempted-admin; sid:1000006; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 21 (msg:"LAB FTP Username Submitted"; flow:to_server,established; content:"USER "; classtype:attempted-admin; sid:1000007; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 21 (msg:"LAB FTP Password Submitted - Possible Brute Force"; flow:to_server,established; content:"PASS "; detection_filter:track by_src, count 5, seconds 60; classtype:attempted-admin; sid:1000008; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 23 (msg:"LAB Telnet Connection Attempt - Insecure Protocol"; classtype:policy-violation; sid:1000009; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 22 (msg:"LAB SSH Connection Attempt"; classtype:misc-activity; sid:1000010; rev:1;)
+
+alert tcp 10.10.10.0/24 any -> 10.10.20.20 80 (msg:"LAB HTTP Connection Attempt"; classtype:misc-activity; sid:1000011; rev:1;)

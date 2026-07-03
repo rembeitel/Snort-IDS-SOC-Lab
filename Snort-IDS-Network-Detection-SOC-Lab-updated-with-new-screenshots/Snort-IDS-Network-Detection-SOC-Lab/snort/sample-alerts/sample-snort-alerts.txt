@@ -1,0 +1,7 @@
+07/03-11:35:31.632104 [**] [1:1000002:1] "LAB Possible TCP SYN Scan or SYN Flood" [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.10.10.10:41752 -> 10.10.20.20:8180
+07/03-11:37:07.305902 [**] [1:1000004:1] "LAB Possible Nmap FIN Scan" [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.10.10.10:37926 -> 10.10.20.20:6669
+07/03-11:38:35.936135 [**] [1:1000005:1] "LAB Possible Nmap Xmas Scan" [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.10.10.10:40004 -> 10.10.20.20:2121
+07/03-11:39:23.193715 [**] [1:1000006:1] "LAB FTP Connection Attempt" [**] [Classification: Attempted Administrator Privilege Gain] [Priority: 1] {TCP} 10.10.10.10:42xxx -> 10.10.20.20:21
+07/03-11:52:14.506724 [**] [1:1000009:1] "LAB Telnet Connection Attempt - Insecure Protocol" [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 10.10.10.10:55176 -> 10.10.20.20:23
+07/03-11:57:58.651786 [**] [1:1000010:1] "LAB SSH Connection Attempt" [**] [Classification: Misc activity] [Priority: 3] {TCP} 10.10.10.10:55478 -> 10.10.20.20:22
+07/03-12:00:04.315191 [**] [1:1000011:1] "LAB HTTP Connection Attempt" [**] [Classification: Misc activity] [Priority: 3] {TCP} 10.10.10.10:1464 -> 10.10.20.20:80
