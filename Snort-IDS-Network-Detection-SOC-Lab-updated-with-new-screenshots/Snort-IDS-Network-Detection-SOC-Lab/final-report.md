@@ -91,10 +91,6 @@ This project demonstrates the ability to:
 - Document evidence with screenshots.
 - Explain false positives, impact, and response actions.
 
-## Additional Kali Evidence Added
-
-Two additional screenshots were added to the repository to strengthen the attack evidence sections:
-
 - `images/attack-01-02-04-kali-command-sequence.png` shows the Kali-side sequence for successful ICMP connectivity, Nmap SYN scanning, Hydra FTP brute-force simulation, and FIN scanning.
 - `images/attack-03-05-06-kali-combined-evidence.png` shows the Kali-side Xmas scan, TCP/23 Telnet-port test behavior, and SSH remote-service access evidence.
 
